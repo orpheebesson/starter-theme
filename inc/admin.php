@@ -1,6 +1,34 @@
 <?php
 
 /**
+ * Filters link URL of the header logo above login form.
+ *
+ * @return string
+ *
+ * @link https://developer.wordpress.org/reference/hooks/login_headerurl/
+ */
+function login_logo_url()
+{
+    return home_url();
+}
+
+add_filter('login_headerurl', 'login_logo_url');
+
+/**
+ * Filters the link text of the header logo above the login form.
+ *
+ * @return string
+ *
+ * @link https://developer.wordpress.org/reference/hooks/login_headertext/
+ */
+function login_logo_url_title()
+{
+    return get_option('blogname');
+}
+
+add_filter('login_headertext', 'login_logo_url_title');
+
+/**
  * Remove menu and submenu pages.
  *
  * @return void

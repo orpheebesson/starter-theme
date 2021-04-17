@@ -1,6 +1,28 @@
 <?php
 
 /**
+ * Enqueue scripts and styles for the login page.
+ *
+ * @return void
+ */
+function register_login_assets()
+{
+    /**
+     * Enqueue a CSS stylesheet.
+     *
+     * @link https://developer.wordpress.org/reference/functions/wp_enqueue_style/
+     */
+    wp_enqueue_style(
+        'admin_starter_theme_css',
+        get_template_directory_uri() . '/assets/css/admin.css',
+        array(),
+        '1.0'
+    );
+}
+
+add_action('login_enqueue_scripts', 'register_login_assets');
+
+/**
  * Register and Enqueue Assets.
  *
  * @return void
